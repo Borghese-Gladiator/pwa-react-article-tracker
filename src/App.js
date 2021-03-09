@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import Article from './components/Article';
@@ -34,6 +33,15 @@ function App() {
     // reset input box
     setInputValue('');
   }
+
+  useEffect(() => {
+    const parsedUrl = new URL(window.location);
+    console.log(parsedUrl);
+    // searchParams.get() will properly handle decoding the values.
+    console.log('Title shared: ' + parsedUrl.searchParams.get('title'));
+    console.log('Text shared: ' + parsedUrl.searchParams.get('text'));
+    console.log('URL shared: ' + parsedUrl.searchParams.get('url'));
+  }, []);
 
   return (
     <div className="container d-flex justify-content-center">
