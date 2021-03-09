@@ -13,5 +13,4 @@ Enable easier article tracking when browsing through Google News. Users can shar
 ## Steps to Implement
 - Created with Bootstrap 4 styling + React interactivity.
 - Initialized with: `npx create-react-app my-app --template cra-template-pwa`
-- Added HTML static code to App.js & App.css from  [https://bbbootstrap.com/snippets/awesome-todo-list-template-25095891](https://bbbootstrap.com/snippets/awesome-todo-list-template-25095891).
 - Fixed code to be components & to track state with React.useState()
