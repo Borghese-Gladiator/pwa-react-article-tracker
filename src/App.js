@@ -26,23 +26,21 @@ function App() {
     }
     // push new value to end of displayed articleList
     setArticleList(oldArray => [...oldArray, newElement]);
-     // reset input box
+    // reset input box
     setInputValue('');
   }
 
   return (
-    <div className="d-flex justify-content-center">
-      <div className="row container d-flex justify-content-center">
-        <div className="col-md-12">
-          <div className="card px-3">
-            <div className="card-body">
-              <form className="add-items d-flex" onSubmit={onFormSubmit}>
-                <input value={inputValue} onChange={handleInputChange} type="text" className="form-control todo-list-input" />
-                <button type="submit" className="add btn btn-primary font-weight-bold todo-list-add-btn">Add</button>
-              </form>
-              <div className="list-wrapper">
-                <ArticleList articleList={articleList} />
-              </div>
+    <div className="container d-flex justify-content-center">
+      <div className="col-md-12">
+        <div className="card px-3">
+          <div className="card-body">
+            <form className="add-items d-flex" onSubmit={onFormSubmit}>
+              <input value={inputValue} onChange={handleInputChange} type="text" className="form-control todo-list-input" />
+              <button type="submit" className="add btn btn-primary font-weight-bold todo-list-add-btn">Add</button>
+            </form>
+            <div className="list-wrapper">
+              <ArticleList articleList={articleList} />
             </div>
           </div>
         </div>
