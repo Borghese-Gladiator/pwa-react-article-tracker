@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import ArticleList from './components/ArticleList';
+import Article from './components/Article';
 
 function App() {
   const [articleList, setArticleList] = useState(new Array(10).fill({
@@ -39,8 +39,16 @@ function App() {
               <input value={inputValue} onChange={handleInputChange} type="text" className="form-control todo-list-input" />
               <button type="submit" className="add btn btn-primary font-weight-bold todo-list-add-btn">Add</button>
             </form>
-            <div className="list-wrapper">
-              <ArticleList articleList={articleList} />
+            <div className="d-flex flex-row flex-wrap">
+              {
+                articleList.map((val, idx) => {
+                  // const { id } = articleObj;
+                  // don't just use idx (React uses keys to optimize & figure out rerenders)
+                  return (
+                    <Article key={idx} articleObj={val} />
+                  )
+                })
+              }
             </div>
           </div>
         </div>
