@@ -24,8 +24,10 @@ function App() {
       link: '',
       completed: false
     }
-    // push new value to end
+    // push new value to end of displayed articleList
     setArticleList(oldArray => [...oldArray, newElement]);
+     // reset input box
+    setInputValue('');
   }
 
   return (
