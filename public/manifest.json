@@ -20,6 +20,7 @@
   ],
   "share_target": {
     "action": "index.html",
+    "method": "GET",
     "params": {
       "title": "name",
       "description": "description",
