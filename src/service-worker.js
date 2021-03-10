@@ -71,24 +71,10 @@ self.addEventListener('message', (event) => {
 
 // Any other custom service worker logic can go here.
 // CUSTOM SERVICE WORKER LISTENERS from link: https://web.dev/web-share-target/
-window.addEventListener('DOMContentLoaded', () => {
+self.addEventListener('DOMContentLoaded', () => {
   const parsedUrl = new URL(window.location);
   // searchParams.get() will properly handle decoding the values.
   console.log('Title shared: ' + parsedUrl.searchParams.get('title'));
   console.log('Text shared: ' + parsedUrl.searchParams.get('text'));
   console.log('URL shared: ' + parsedUrl.searchParams.get('url'));
-});
-
-self.addEventListener('fetch', event => {
-  if (event.request.method !== 'POST') {
-    event.respondWith(fetch(event.request));
-    return;
-  }
-
-  event.respondWith((async () => {
-    const formData = await event.request.formData();
-    const link = formData.get('link') || '';
-    saveBookmark(link);
-    return new Response('Bookmark saved: ' + link);
-  })());
 });

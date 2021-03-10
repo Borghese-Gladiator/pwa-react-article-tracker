@@ -7,8 +7,9 @@ import Article from './components/Article';
 import PlaceholderImg from './images/bigstock-Little-Striped-Cute-Kitten-Sit.jpg';
 
 function App() {
-  const [articleList, setArticleList] = useState(new Array(10).fill({
+  const [articleList, setArticleList] = useState(new Array(3).fill({
     title: 'This is a really really really really cool article link',
+    description: '',
     link: '',
     imgLink: PlaceholderImg,
     completed: false,
@@ -24,6 +25,7 @@ function App() {
     e.preventDefault();
     const newElement = {
       title: inputValue,
+      description: '',
       link: '',
       imgLink: PlaceholderImg,
       completed: false
@@ -37,12 +39,24 @@ function App() {
   useEffect(() => {
     const parsedUrl = new URL(window.location);
     console.log(parsedUrl);
-    // searchParams.get() will properly handle decoding the values.
-    console.log('Title shared: ' + parsedUrl.searchParams.get('title'));
-    console.log('Text shared: ' + parsedUrl.searchParams.get('text'));
-    console.log('URL shared: ' + parsedUrl.searchParams.get('url'));
-  }, []);
+    const title = parsedUrl.searchParams.get('title');
+    const description = parsedUrl.searchParams.get('description');
+    const url = parsedUrl.searchParams.get('url');
 
+    const newElement = {
+      title: title,
+      description: description,
+      link: url,
+      imgLink: PlaceholderImg,
+      completed: false
+    }
+
+    if (title && description && url) {
+      // push new value to end of displayed articleList
+      setArticleList(oldArray => [...oldArray, newElement]);
+    }
+  }, [])
+  
   return (
     <div className="container d-flex justify-content-center">
       <div className="card-body">
