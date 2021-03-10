@@ -19,14 +19,14 @@
     }
   ],
   "share_target": {
-    "action": "/bookmark",
-    "method": "POST",
-    "enctype": "multipart/form-data",
+    "action": "index.html",
     "params": {
+      "title": "name",
+      "description": "description",
       "url": "link"
     }
   },
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
