@@ -6,6 +6,9 @@ import Article from './components/Article';
 
 import PlaceholderImg from './images/bigstock-Little-Striped-Cute-Kitten-Sit.jpg';
 
+const parsedUrl = new URL(String(window.location));
+console.log(parsedUrl);
+
 function App() {
   const [articleList, setArticleList] = useState(new Array(3).fill({
     title: 'This is a really really really really cool article link',
@@ -37,8 +40,6 @@ function App() {
   }
 
   useEffect(() => {
-    const parsedUrl = new URL(window.location);
-    console.log(parsedUrl);
     const title = parsedUrl.searchParams.get('title');
     const description = parsedUrl.searchParams.get('description');
     const url = parsedUrl.searchParams.get('url');
