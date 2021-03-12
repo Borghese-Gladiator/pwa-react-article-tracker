@@ -25,7 +25,7 @@
     "params": {
       "title": "title",
       "description": "description",
-      "url": "link"
+      "url": "url"
     }
   },
   "start_url": ".",
